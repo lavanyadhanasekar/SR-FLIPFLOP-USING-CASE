@@ -34,15 +34,42 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 **Procedure**
 
-/* write all the steps invloved */
+
+1. Open Quartus and create a new Verilog file for the SR flip-flop.
+2. Write the Verilog code and compile it to remove errors.
+3. Create a waveform file and apply input combinations of **S** and **R** as per the SR truth table.
+4. Run functional simulation and observe the output **Q**.
+5. Compare the simulated waveform with the SR flip-flop functional table to verify correct operation.
+
+
+
 
 **PROGRAM**
+module lab10(
+    input  wire clk, rst, S, R,
+    output reg  Q
+);
+    always @(posedge clk) begin
+        if (rst)
+            Q <= 1'b0;         // Reset
+        else begin
+            case ({S,R})
+                2'b00: Q <= Q;     // No change
+                2'b01: Q <= 1'b0;  // Reset
+                2'b10: Q <= 1'b1;  // Set
+                2'b11: Q <= 1'bx;  // Invalid
+            endcase
+        end
+    end
+endmodule
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+ Developed by:lavanya D RegisterNumber:25016895
 
 **RTL LOGIC FOR FLIPFLOPS**
+<img width="916" height="471" alt="Screenshot 2025-12-10 133958" src="https://github.com/user-attachments/assets/2849daa0-60fa-4686-bc62-fe13e142a464" />
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+<img width="878" height="303" alt="Screenshot 2025-12-10 134057" src="https://github.com/user-attachments/assets/e50b5017-f3f1-4d8a-96d7-f9cb643e3202" />
 
 **RESULTS**
+thus the implement SR flipflop usimg verilog and validating their functionality using functional table
