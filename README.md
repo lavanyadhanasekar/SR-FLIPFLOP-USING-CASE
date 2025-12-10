@@ -45,6 +45,7 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 
 **PROGRAM**
+```
 module lab10(
     input  wire clk, rst, S, R,
     output reg  Q
@@ -62,7 +63,7 @@ module lab10(
         end
     end
 endmodule
-
+```
  Developed by:lavanya D RegisterNumber:25016895
 
 **RTL LOGIC FOR FLIPFLOPS**
